@@ -1,12 +1,27 @@
-import React from 'react'
-import '../styles/App.css';
-import { useState, useEffect } from 'react';
+import React from "react";
+import "../styles/App.css";
+import { useState, useEffect } from "react";
 const App = () => {
-//code here 
- 
-
-
-
+  const [name, setName] = useState([]);
+  const [property, setProperty] = useState([]);
+  useEffect(() => {
+    fetch("https://content.newtonschool.co/v1/pr/main/users").then((result) => {
+      result.JSON().then((resp) => {
+        setName(resp);
+      });
+    });
+  }, []);
+  useEffect(() => {
+    fetch("https://").then((result) => {
+      result.JSON().then((resp) => {
+        setProperty(resp);
+      });
+    });
+  }, []);
+  
+  function changeInput(){
+    if
+  }
   return (
     <div className="App">
       <h1 id="text">Type a number between 1 and 10</h1>
@@ -14,7 +29,6 @@ const App = () => {
       <p id="name">{name}</p>
     </div>
   );
-}
-
+};
 
 export default App;
